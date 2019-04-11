@@ -67,6 +67,7 @@ if(load_model_weight == True):
 
 if(load_model == True):
     new_model = keras.models.load_model('./model/Fashion_mnist/mnist_mlp_model.h5')
+    print(new_model.layers[1].get_weights()[0].name)
     new_model.summary()
     loss, acc = new_model.evaluate(test_images, test_labels)
     print("복원된 모델의 정확도: {:5.2f}%".format(100*acc))
